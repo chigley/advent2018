@@ -15,8 +15,26 @@ func main() {
 	}
 
 	fmt.Println(Part1(input))
+	fmt.Println(Part2(input))
 }
 
 func Part1(input []int) int {
 	return advent2018.SumInts(input)
+}
+
+func Part2(input []int) int {
+	seen := map[int]struct{}{
+		0: {},
+	}
+
+	var freq int
+	for {
+		for _, n := range input {
+			freq += n
+			if _, ok := seen[freq]; ok {
+				return freq
+			}
+			seen[freq] = struct{}{}
+		}
+	}
 }
