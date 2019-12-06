@@ -24,3 +24,18 @@ func ReadInts(r io.Reader) ([]int, error) {
 
 	return ret, nil
 }
+
+func ReadStrings(r io.Reader) ([]string, error) {
+	scanner := bufio.NewScanner(r)
+	var ret []string
+
+	for scanner.Scan() {
+		ret = append(ret, scanner.Text())
+	}
+
+	if err := scanner.Err(); err != nil {
+		return nil, err
+	}
+
+	return ret, nil
+}
