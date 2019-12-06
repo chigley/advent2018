@@ -30,7 +30,7 @@ func ReadClaims(r io.Reader) ([]Claim, error) {
 		}
 
 		ret = append(ret, Claim{
-			ID:      matches[0],
+			ID:      ClaimID(matches[0]),
 			OffsetX: matches[1],
 			OffsetY: matches[2],
 			Width:   matches[3],
