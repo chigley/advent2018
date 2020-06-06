@@ -94,6 +94,7 @@ func differingIndex(s1, s2 string) (int, error) {
 		}
 
 		if differingIndex != -1 {
+			// We just found a second differing index.
 			return -1, nil
 		}
 
