@@ -13,7 +13,7 @@ var regexpClaim = regexp.MustCompile(`^#(\d+) @ (\d+),(\d+): (\d+)x(\d+)$`)
 func ReadClaims(r io.Reader) ([]Claim, error) {
 	input, err := advent2018.ReadStrings(r)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("ReadStrings: %w", err)
 	}
 
 	var ret []Claim
@@ -26,7 +26,7 @@ func ReadClaims(r io.Reader) ([]Claim, error) {
 
 		matches, err := advent2018.AtoiSlice(strMatches[1:])
 		if err != nil {
-			return nil, err
+			return nil, fmt.Errorf("AtoiSlice: %w", err)
 		}
 
 		ret = append(ret, Claim{

@@ -1,6 +1,7 @@
 package advent2018
 
 import (
+	"fmt"
 	"strconv"
 )
 
@@ -9,7 +10,7 @@ func AtoiSlice(input []string) ([]int, error) {
 	for i, str := range input {
 		n, err := strconv.Atoi(str)
 		if err != nil {
-			return nil, err
+			return nil, fmt.Errorf("advent2018: atoi: %w", err)
 		}
 		ret[i] = n
 	}

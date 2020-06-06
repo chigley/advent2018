@@ -51,7 +51,7 @@ func Part2(input []string) (string, error) {
 
 			differingIndex, err := differingIndex(id1, id2)
 			if err != nil {
-				return "", err
+				return "", fmt.Errorf("differingIndex: %w", err)
 			}
 			if differingIndex != -1 {
 				return id1[:differingIndex] + id1[differingIndex+1:], nil
