@@ -22,4 +22,5 @@ func TestDay1(t *testing.T) {
 	}
 
 	assert.Equal(t, 26281, guards.Part1())
+	assert.Equal(t, 73001, guards.Part2())
 }

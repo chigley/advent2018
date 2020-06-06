@@ -20,6 +20,7 @@ func main() {
 	}
 
 	fmt.Println(guards.Part1())
+	fmt.Println(guards.Part2())
 }
 
 func (gs Guards) Part1() int {
@@ -39,5 +40,19 @@ func (gs Guards) Part1() int {
 		}
 	}
 
+	return int(guardID) * minute
+}
+
+func (gs Guards) Part2() int {
+	minute, guardID, maxFreq := -1, GuardID(-1), -1
+	for g, freqs := range gs {
+		for m, freq := range freqs {
+			if freq > maxFreq {
+				minute = m
+				guardID = g
+				maxFreq = freq
+			}
+		}
+	}
 	return int(guardID) * minute
 }
